@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { getPosts } from "../api/posts";
-import "./autocomplete.css"
+import "./autocomplete.css";
 
 function Autocomplete() {
+  const autocomplete = useRef();
 
   const [data, setData] = useState([]);
   const [boxOptions, setBoxOptions] = useState([]);
@@ -27,24 +28,38 @@ function Autocomplete() {
       );
     }
   };
-  const handleClick=(v)=>{
-    setQuery(v)
-    setBoxOptions([])
-  }
-  const handleDelete = ()=>{
-    setQuery("")
-  }
+  const handleClick = (v) => {
+    setQuery(v);
+    setBoxOptions([]);
+  };
+
+  const handleDelete = () => {
+    setQuery("");
+    setBoxOptions([]);
+  };
+
   return (
     <div className="autocomplete-container">
+      <h1 className="header">Autocomplete Project</h1>
       <div className="input">
-        <input type="text" placeholder="AutoComplete" value={query} onChange={handleChange} />
-        <i onClick={handleDelete} class="fa-solid fa-delete-left delete"></i>
+        <input
+          type="text"
+          placeholder="AutoComplete"
+          value={query}
+          onChange={handleChange}
+        />
+        <i
+          onClick={handleDelete}
+          className="fa-solid fa-delete-left delete"
+        ></i>
       </div>
       {boxOptions.length > 0 && (
         <div className="autocomplete-box">
           <ul>
             {boxOptions.map((item) => (
-              <li key={item.id} onClick={()=>handleClick(item.title)}>{item.title}</li>
+              <li key={item.id} onClick={() => handleClick(item.title)}>
+                {item.title}
+              </li>
             ))}
           </ul>
         </div>
