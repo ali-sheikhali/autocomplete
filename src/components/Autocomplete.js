@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { getPosts } from "../api/posts";
 import "./autocomplete.css"
+
 function Autocomplete() {
+
   const [data, setData] = useState([]);
   const [boxOptions, setBoxOptions] = useState([]);
   const [query, setQuery] = useState("");
+
   useEffect(() => {
     getPosts().then((res) => {
       setData(res);
@@ -24,15 +27,18 @@ function Autocomplete() {
       );
     }
   };
-
   const handleClick=(v)=>{
     setQuery(v)
     setBoxOptions([])
+  }
+  const handleDelete = ()=>{
+    setQuery("")
   }
   return (
     <div className="autocomplete-container">
       <div className="input">
         <input type="text" placeholder="AutoComplete" value={query} onChange={handleChange} />
+        <i onClick={handleDelete} class="fa-solid fa-delete-left delete"></i>
       </div>
       {boxOptions.length > 0 && (
         <div className="autocomplete-box">

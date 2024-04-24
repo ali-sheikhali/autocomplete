@@ -1,12 +1,12 @@
 .autocomplete-container {
     position: absolute;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
 
   }
 .input input{
-    width:300px;
+    width:400px;
     border-radius: 5px; 
     outline:none; 
     padding: 10px;
@@ -16,47 +16,34 @@
 }  
 .autocomplete-box{
     position: absolute;
-    top: calc(100% + 5px); /* Adjust the distance from the input field */
+    top: calc(100% + 20px); 
     left: 0;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 320px; /* Adjust width as needed */
-    overflow-y: auto;
+    width: 420px; 
+    max-height: 350px;
+    overflow-y: scroll;
+
 }
 .autocomplete-box ul{
     list-style-type: none;
-    padding: 0 5px;
-    margin: 0;
-}
-.autocomplete-box ul li{
-    margin: 20px 0;
-}
-
-
-
-  /* .autocomplete-box {
-    
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 500px; 
-  }
-  
-  .autocomplete-box ul {
-    list-style-type: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .autocomplete-box ul li {
+
+}
+.autocomplete-box ul li{
     padding: 10px;
     cursor: pointer;
-  }
-  
-  .autocomplete-box ul li:hover {
-    background-color: #f0f0f0;
-  } */
-  
+
+}
+.autocomplete-box ul li:hover{
+    background-color: #e2e2e2;
+}
+.delete{
+    position:absolute;
+    right:20px;
+    top:10px;
+    z-index:10000
+}
