@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getPosts } from "../api/posts";
-
+import "./autocomplete.css"
 function Autocomplete() {
   const [data, setData] = useState([]);
   const [boxOptions, setBoxOptions] = useState([]);
@@ -30,15 +30,15 @@ function Autocomplete() {
     setBoxOptions([])
   }
   return (
-    <div>
-      <div>
-        <input type="text" value={query} onChange={handleChange} />
+    <div className="autocomplete-container">
+      <div className="input">
+        <input type="text" placeholder="AutoComplete" value={query} onChange={handleChange} />
       </div>
       {boxOptions.length > 0 && (
-        <div>
+        <div className="autocomplete-box">
           <ul>
             {boxOptions.map((item) => (
-              <li onClick={()=>handleClick(item.title)}>{item.title}</li>
+              <li key={item.id} onClick={()=>handleClick(item.title)}>{item.title}</li>
             ))}
           </ul>
         </div>
