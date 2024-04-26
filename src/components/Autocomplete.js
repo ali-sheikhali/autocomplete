@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { getPosts } from "../api/posts";
 import "./autocomplete.css";
 
 function Autocomplete() {
-  const autocomplete = useRef();
 
   const [data, setData] = useState([]);
   const [boxOptions, setBoxOptions] = useState([]);
